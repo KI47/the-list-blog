@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    {% block link %}
+    {% endblock %}
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        *{
+    padding: 0;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+  
+}
+html,body{
+    height: 100%;
+   
+}
+img{
+    width: 100%;
+    object-fit: cover;
+}
+.container1{
+    width: 50%;
+    margin: auto;
+}
+.creen{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 15px;
+    grid-gap: 5px;
+    
+}
+.sidenav {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    
+    background-color:white;
+    padding: 20px;
+    opacity: 0.9;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: limegreen;
+  }
+  
+
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+    </style>
+</head>
+<body>
+    
+<div class="sidenav">
+    <!-- <div class="intro" style="display: flex; padding: 13px"> -->
+    <h2 style="color: orange;font-weight: bolder;margin-bottom: 20px;">The <span><img src="../../static/images/reminders.png" alt="" style="width: 50px;"></span></h2>
+       
+<!-- </div> -->
+     <h2 style="font-weight: bolder; "><a href="#about">Login<span class="material-icons">
+        login
+        </span></a></h2>
+        <h2 style="font-weight: bolder; "><a href="/">Home<span class="material-icons" style="font-size: 20px; margin-top: 10px;">
+    <div class="row g-3" style="margin-top: 10px;">
+
+        <div class="col" style="display: flex;">
+          <input type="text" class="form-control" placeholder="Search" aria-label="Search" >
+          <span class="material-icons" style="color: gainsboro; margin-top: 7px;">
+            search
+            </span>
+        </div>
+   
+    <a href="/News">News</a>
+    <a href="/Sports"">Sports</a>
+    <a href="/movies">Movies</a> 
+    <a href="/tech">Technology</a> 
+    <a href="/Music"">Music</a>
+    <a href="/Entertainment">Entertainment</a>
+    <div class="icons" style="display: flex; padding: 10px; justify-content: space-between;">
+     
+          <img src="../../static/images/twitter.png" style="width: 47px;" alt="">
+          <img src="../../static/images/facebook.png" style="width: 47px;" alt="">
+          <img src="../../static/images/instagram.png" style="width: 47px;" alt="">
+          <img src="../../static/images/linkedin.png" style="width: 47px;" alt="">
+          </div>
+ </div>
+  </div>
+    
+    {%  block body %}
+    <section class="s1">
+
+        <div class="container1">
+        
+   
+      <h1 style="text-align: center; margin-top: 10px;">{{post.title}} </h1>
+      
+      <!-- <h3>
+    
+        <small class="text-muted">{{post.sub_title}}</small>
+      </h3> -->
+      <div class="coco"style="display: flex; ">
+      <h5 style="margin: 5px;font-weight: bolder; ">{{post.author}}</h5>
+      <p style='font: italic; margin:5px; color: #818181;' ><span class="material-icons">
+        date_range
+        </span></p>{{post.date_posted.strftime('%B %d, %Y ')}}
+      <h5 style='margin-left: auto;'><small class="text-muted"><span class="material-icons">
+        category
+        </span>{{post.category}}</small></h5>
+    </div>
+      <p class="lead" style="white-space: pre-wrap;">{{post.content|safe}}</p>
+        
+      <hr>
+      <div class="newsletter" style="display: grid;grid-template-columns: repeat(2,1fr); padding: 20px;">
+    
+      <h1 style="font-weight: bolder;">Signup for newsletters</h1>
+      <input type="email" name="email" id="email" placeholder="Email" style="padding: 16px; border: none; border-bottom: 1px solid gainsboro; font-size: 16px; outline: none; ">
+      <button style="padding: 15px; color: white; background-color: orange; outline: none;
+      border: none; width: 46%; align-self: flex-end;">Subscribe</button>
+       <div class="icons" style="display: flex; padding: 10px;">
+         
+        <img src="../static/images/twitter.png" style="width: 42px;margin-left: auto;" alt="">
+        <img src="../static/images/facebook.png" style="width: 42px;margin-right: 4px;margin-left: 4px;" alt="">
+        <img src="../static/images/instagram.png" style="width: 42px;margin-right: 4px;" alt="">
+        <img src="../static/images/linkedin.png" style="width: 42px;margin-right: 4px;" alt="" >
+        </div>
+    
+    </div>
+    <hr>
+    </div>
+    </section>
+
+    {% endblock %}
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+
+    
+    
+ </script>
+ <script>
+     /* Set the width of the side navigation to 247px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "247px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+ </script>
+</body>
+
+
+</html>

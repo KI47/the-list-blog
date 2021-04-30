@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block link%}
+<link rel="stylesheet" href="static/css/home.css">
+{% endblock %}
+{% block body %}
+<section class="s1">
+
+    <div class="container1">
+      <h2 style="margin-top: 10px;">Latest Posts</h2>
+    <div class="box-wrapper">
+{% for post in posts %}
+      <div class="box" style="padding: 20px; border: 1px solid gainsboro; width: 100%; margin: auto;margin-bottom: 10px;" >
+        <a class="ant" href="{{url_for('post',post_id=post.id)}}" style="text-decoration: none; color: black; ">
+  <h1 class="ant" style="text-align: center; margin-top: 10px; opacity: 0.5; transition: 0.7s ease-in-out;">{{post.title}} </h1>
+</a>
+  
+  <!-- <h3>
+
+    <small class="text-muted">{{post.sub_title}}</small>
+  </h3> -->
+  <div class="coco"style="display: flex; ">
+  <h5 style="margin: 5px;font-weight: bolder; ">{{post.author}}</h5>
+  <p style='font: italic; margin:5px; color: #818181;' ><span class="material-icons">
+    date_range
+    </span></p>{{post.date_posted.strftime('%B %d, %Y ')}}
+  <h5 style='margin-left: auto;'><small class="text-muted"><span class="material-icons">
+    category
+    </span>{{post.category}}</small></h5>
+</div>
+  <!-- <p>{{post.content|safe}}</p> -->
+    
+  <hr>
+ 
+
+</div>
+{% endfor %}
+</div>
+<div class="newsletter" style="display: grid;grid-template-columns: repeat(1,1fr); padding: 20px;">
+
+  <h1 style="font-weight: bolder;" class="title">Signup for newsletters</h1>
+  <div class="form-wrapper" style="display: flex; justify-content: space-around; padding: 10px;">
+  <input type="email" name="email" id="email" placeholder="Email" style="padding: 16px; border: none; border-bottom: 1px solid gainsboro; font-size: 16px; outline: none; width: 50%; ">
+  <button style="padding: 15px; color: white; background-color: orange; outline: none;
+  border: none; width: 60; align-self: flex-end;" class="sub">Subscribe</button></div>
+   <div class="icons" style="display: flex; padding: 10px;">
+     
+    <img class="logo"src="static/images/twitter.png" style="width: 42px;margin-left: auto;" alt="">
+    <img  class="logo" src="static/images/facebook.png" alt="">
+    <img class="logo" src="static/images/instagram.png"  alt="">
+    <img class="logo" src="static/images/linkedin.png"  alt="" >
+    </div>
+
+</div>
+
+</div>
+</section>
+{% endblock %}

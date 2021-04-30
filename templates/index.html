@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block link %}
+<link rel="stylesheet" href="static/css/index.css">
+{% endblock %}
+
+{%  block title %}
+Adding panel
+{% endblock %}
+
+{%  block body %}
+<div class="wrapperr">
+    <div class="wrapper">
+    <form method="POST" , enctype="multipart/form-data"  class="row g-3">
+        <div class="col-md-4">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title">
+          </div>
+          <div class="col-md-6">
+            <label for="subtitle" class="form-label" > Subtitle</label>
+            <input type="text" class="form-control" id="subtitle"name="sub_title">
+          </div>
+        <div class="col-md-6">
+
+            <label for="author" class="form-label" >Author</label>
+            <input type="text" class="form-control" id="author" name="author">
+          </div>
+          <div class="col-md-5">
+            <label for="inputState" class="form-label">Category</label>
+            <select id="inputState" class="form-select" name='category'>
+              <option selected>Music</option>
+              <option>Technology</option>
+              <option>Movies</option>
+              <option>News</option>
+              <option>entertainment</option>
+              <option>Sports</option>
+            </select>
+          </div>
+          <div class="form-floating" >
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 400px; resize: none;" name="content"></textarea>
+            <label for="floatingTextarea2">Comments</label>
+          </div>
+        
+       
+        <div class="col-7">
+            <label for="formFileMultiple" class="form-label">Multiple files input example</label>
+            <input class="form-control" type="file" id="formFileMultiple" multiple>
+          </div>
+          
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <div class="col-12">
+            <button type="submit" class="btn btn-primary">Attach</button>
+          </div>
+      </form>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+
+.box-wrapper{
+    display: grid; 
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 6px;
+     padding: 20px;
+}
+.logo{
+    margin-right: 4px;
+    width: 42px;
+   
+}
+
+@media (max-width: 780px){
+
+    .box-wrapper{
+        grid-template-columns: repeat(1,1fr);
+     
+    }
+    .container1{
+        width: 60%;
+    }
+    .newsletter{
+        grid-template-columns: repeat(1,1fr);
+    }
+   
+  }
+@media (max-width: 480px){
+
+    .title{
+        font-size: 20px;
+    }
+    .box-wrapper{
+        padding: 0;
+       
+    }
+    .newsletter{
+        padding: 0;
+      
+    }
+   
+    
+        }
+    

@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+{% block body %}
+<section class="s1">
+
+  <div class="container1">
+    <h2 style="margin-top: 10px;">Latest Posts</h2>
+  <div class="nelly" style="display: grid; grid-template-columns: repeat(2,1fr);grid-gap: 6px; padding: 20px;">
+{% for post in posts %}
+{% if post.category == 'Technology' %}
+    <div class="box" style="padding: 20px; border: 1px solid gainsboro; width: 100%; margin: auto;margin-bottom: 10px;" >
+      <a class="ant" href="{{url_for('post',post_id=post.id)}}" style="text-decoration: none; color: black; ">
+<h1 class="ant" style="text-align: center; margin-top: 10px; opacity: 0.5; transition: 0.7s ease-in-out;">{{post.title}} </h1>
+</a>
+
+<!-- <h3>
+
+  <small class="text-muted">{{post.sub_title}}</small>
+</h3> -->
+<div class="coco"style="display: flex; ">
+<h5 style="margin: 5px;font-weight: bolder; ">{{post.author}}</h5>
+<p style='font: italic; margin:5px; color: #818181;' ><span class="material-icons">
+  date_range
+  </span></p>{{post.date_posted.strftime('%B %d, %Y ')}}
+<h5 style='margin-left: auto;'><small class="text-muted"><span class="material-icons">
+  category
+  </span>{{post.category}}</small></h5>
+</div>
+
+<hr>
+ 
+
+</div>
+{% endif %}
+{% endfor %}
+</div>
+</section>
+{% endblock %}
